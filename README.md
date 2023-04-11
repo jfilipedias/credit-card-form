@@ -7,6 +7,7 @@
 - [ReactJS](https://reactjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Typescript](https://typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
 - [Zod](https://zod.dev/)
 
 ## Licença
