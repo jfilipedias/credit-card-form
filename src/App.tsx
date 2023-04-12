@@ -2,7 +2,7 @@
 import * as Tooltip from '@radix-ui/react-tooltip'
 import HelpIcon from './assets/help.svg'
 import { Button } from './components/Button'
-import { SafeLegend } from './components/SafeLegend'
+import { SafetyInfo } from './components/SafetyInfo'
 import { TextInput } from './components/TextInput'
 import './styles/main.css'
 
@@ -17,7 +17,7 @@ function App() {
               <div className="bg-card-back absolute left-0 top-0 z-50 h-[212px] w-[328px] bg-no-repeat transition-all duration-500 [backface-visibility:hidden] [transformstyle:preserve-3d] [transform:rotateY(-180deg)] group-hover:[transform:rotateY(0)]"></div>
             </div>
 
-            <SafeLegend className="hidden lg:flex" />
+            <SafetyInfo className="hidden lg:flex" />
           </section>
 
           <section className="flex w-full grow flex-col items-center gap-12 lg:w-auto">
@@ -77,7 +77,7 @@ function App() {
               </div>
             </div>
 
-            <SafeLegend className="lg:hidden" />
+            <SafetyInfo className="lg:hidden" />
           </section>
         </div>
 

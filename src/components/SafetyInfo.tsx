@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import ShieldIcon from '../assets/shield.svg'
 
-export function SafeLegend({ className }: { className?: string }) {
+export function SafetyInfo({ className }: { className?: string }) {
   return (
     <div className={clsx('flex items-center gap-2', className)}>
       <img src={ShieldIcon} alt="Ícone de segurança" />
