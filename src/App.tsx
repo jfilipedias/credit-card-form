@@ -1,4 +1,6 @@
 /* eslint-disable tailwindcss/no-custom-classname */
+import * as Tooltip from '@radix-ui/react-tooltip'
+import HelpIcon from './assets/help.svg'
 import { Button } from './components/Button'
 import { SafeLegend } from './components/SafeLegend'
 import { TextInput } from './components/TextInput'
@@ -24,6 +26,7 @@ function App() {
                 <TextInput.Label htmlFor="cc-number">
                   Número do cartão
                 </TextInput.Label>
+
                 <TextInput.Input
                   id="cc-number"
                   placeholder="**** **** **** ****"
@@ -34,6 +37,7 @@ function App() {
                 <TextInput.Label htmlFor="cc-holder">
                   Nome do titular
                 </TextInput.Label>
+
                 <TextInput.Input
                   id="cc-holder"
                   placeholder="Nome como está no cartão"
@@ -45,11 +49,29 @@ function App() {
                   <TextInput.Label htmlFor="cc-validity">
                     Validade
                   </TextInput.Label>
+
                   <TextInput.Input id="cc-validity" placeholder="mm/aa" />
                 </TextInput.Root>
 
                 <TextInput.Root>
-                  <TextInput.Label htmlFor="cc-cvv">CVV</TextInput.Label>
+                  <TextInput.Label htmlFor="cc-cvv">
+                    CVV
+                    <Tooltip.Provider>
+                      <Tooltip.Root>
+                        <Tooltip.Trigger asChild>
+                          <img src={HelpIcon} alt="Ícone de ajuda" />
+                        </Tooltip.Trigger>
+
+                        <Tooltip.Portal>
+                          <Tooltip.Content className="data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade mb-1 rounded bg-[#D1D5DB] px-2 py-1 text-sm text-[#374151]">
+                            Esse número está, geralmente, no verso do seu
+                            cartão.
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+                    </Tooltip.Provider>
+                  </TextInput.Label>
+
                   <TextInput.Input id="cc-cvv" placeholder="***" />
                 </TextInput.Root>
               </div>
