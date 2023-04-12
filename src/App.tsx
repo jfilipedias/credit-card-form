@@ -1,6 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { Button } from './components/Button'
 import { SafeLegend } from './components/SafeLegend'
+import { TextInput } from './components/TextInput'
 import './styles/main.css'
 
 function App() {
@@ -18,7 +19,41 @@ function App() {
           </section>
 
           <section className="flex w-full grow flex-col items-center gap-12 lg:w-auto">
-            <div className="w-full">Form</div>
+            <div className="flex w-full flex-col gap-6">
+              <TextInput.Root>
+                <TextInput.Label htmlFor="cc-number">
+                  Número do cartão
+                </TextInput.Label>
+                <TextInput.Input
+                  id="cc-number"
+                  placeholder="**** **** **** ****"
+                />
+              </TextInput.Root>
+
+              <TextInput.Root>
+                <TextInput.Label htmlFor="cc-holder">
+                  Nome do titular
+                </TextInput.Label>
+                <TextInput.Input
+                  id="cc-holder"
+                  placeholder="Nome como está no cartão"
+                />
+              </TextInput.Root>
+
+              <div className="flex gap-4">
+                <TextInput.Root>
+                  <TextInput.Label htmlFor="cc-validity">
+                    Validade
+                  </TextInput.Label>
+                  <TextInput.Input id="cc-validity" placeholder="mm/aa" />
+                </TextInput.Root>
+
+                <TextInput.Root>
+                  <TextInput.Label htmlFor="cc-cvv">CVV</TextInput.Label>
+                  <TextInput.Input id="cc-cvv" placeholder="***" />
+                </TextInput.Root>
+              </div>
+            </div>
 
             <SafeLegend className="lg:hidden" />
           </section>
