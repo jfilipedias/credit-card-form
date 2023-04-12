@@ -3,15 +3,6 @@ import ShieldIcon from './assets/shield.svg'
 import { Button } from './components/Button'
 import './styles/main.css'
 
-function SafeLegend({ className }: { className?: string }) {
-  return (
-    <div className={clsx('flex items-center gap-2', className)}>
-      <img src={ShieldIcon} alt="Ícone de segurança" />
-      <span className="text-[#E5E7EB]">Seus dados estão seguros</span>
-    </div>
-  )
-}
-
 function App() {
   return (
     <>
@@ -30,7 +21,9 @@ function App() {
           </section>
         </div>
 
-        <Button className="mt-12 w-full">Adicionar cartão</Button>
+        <Button type="submit" className="mt-12 w-full">
+          Adicionar cartão
+        </Button>
       </form>
     </>
   )
