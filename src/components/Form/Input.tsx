@@ -17,6 +17,7 @@ export function Input({ className, invalid, ...props }: InputProps) {
         { 'border-[#FB7185]': invalid },
         className,
       )}
+      aria-invalid={invalid}
       {...register(props.name)}
       {...props}
     />
