@@ -32,7 +32,13 @@ function App() {
   const {
     handleSubmit,
     formState: { isSubmitting, errors },
+    watch,
   } = addCreditCardForm
+
+  const cardNumber = String(watch('number'))
+  const cardHolder = watch('holder')
+  const cardValidity = watch('validity')
+  const cardCVV = String(watch('cvv'))
 
   async function handleAddCreditCard(data: CreditCardFormData) {
     console.log({ data })
@@ -46,7 +52,13 @@ function App() {
       >
         <div className="flex w-full flex-col items-center gap-16 lg:flex-row-reverse">
           <section className="flex w-72 flex-col items-center gap-8">
-            <CreditCard />
+            <CreditCard
+              number={cardNumber}
+              holder={cardHolder}
+              validity={cardValidity}
+              cvv={cardCVV}
+            />
+
             <SafetyInfo className="hidden lg:flex" />
           </section>
 
