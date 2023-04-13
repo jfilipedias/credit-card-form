@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -25,6 +26,8 @@ const creditCardFormSchema = z.object({
 type CreditCardFormData = z.infer<typeof creditCardFormSchema>
 
 function App() {
+  const [isCardFlipped, setIsCardFlipped] = useState(false)
+
   const addCreditCardForm = useForm<CreditCardFormData>({
     resolver: zodResolver(creditCardFormSchema),
   })
@@ -44,6 +47,14 @@ function App() {
     console.log({ data })
   }
 
+  function flipCard() {
+    setIsCardFlipped(true)
+  }
+
+  function untapCard() {
+    setIsCardFlipped(false)
+  }
+
   return (
     <FormProvider {...addCreditCardForm}>
       <form
@@ -57,6 +68,7 @@ function App() {
               holder={cardHolder}
               validity={cardValidity}
               cvv={cardCVV}
+              isFlipped={isCardFlipped}
             />
 
             <SafetyInfo className="hidden lg:flex" />
@@ -135,6 +147,8 @@ function App() {
                     placeholder="***"
                     maxLength={3}
                     invalid={!!errors.cvv}
+                    onFocus={flipCard}
+                    onBlur={untapCard}
                   />
 
                   {errors.cvv && (

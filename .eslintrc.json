@@ -39,6 +39,7 @@
       }
     ],
     "react/react-in-jsx-scope": "off",
-    "tailwindcss/classnames-order": "error"
+    "tailwindcss/classnames-order": "error",
+    "tailwindcss/no-custom-classname": "off"
   }
 }
