@@ -15,7 +15,7 @@ const creditCardFormSchema = z.object({
   number: z
     .string()
     .min(19, { message: 'Informe o número do cartão' })
-    .transform((value) => Number(value.replace(' ', ''))),
+    .transform((value) => Number(value.replace(/\s+/g, ''))),
   holder: z.string().min(3, { message: 'Informe o nome do titular do cartão' }),
   validity: z.string().min(5, { message: 'Informe a validade' }),
   cvv: z
