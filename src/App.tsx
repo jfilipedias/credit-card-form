@@ -153,8 +153,7 @@ function App() {
 
                         <Tooltip.Portal>
                           <Tooltip.Content className="data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade mb-1 rounded bg-[#D1D5DB] px-2 py-1 text-sm text-[#374151]">
-                            Esse número está, geralmente, no verso do seu
-                            cartão.
+                            Esse número está, geralmente, no verso do seu cartão
                           </Tooltip.Content>
                         </Tooltip.Portal>
                       </Tooltip.Root>
