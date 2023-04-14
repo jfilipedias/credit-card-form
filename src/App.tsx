@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -8,6 +8,7 @@ import { Button } from './components/Button'
 import { CreditCard } from './components/CreditCard'
 import { Form } from './components/Form'
 import { SafetyInfo } from './components/SafetyInfo'
+import { maskCreditCardNumber, maskCreditCardValidity } from './utils/masks'
 import './styles/main.css'
 
 const creditCardFormSchema = z.object({
@@ -23,12 +24,13 @@ const creditCardFormSchema = z.object({
     .transform((value) => Number(value)),
 })
 
-type CreditCardFormData = z.infer<typeof creditCardFormSchema>
+type CreditCardFormInput = z.input<typeof creditCardFormSchema>
+type CreditCardFormOutput = z.output<typeof creditCardFormSchema>
 
 function App() {
   const [isCardFlipped, setIsCardFlipped] = useState(false)
 
-  const addCreditCardForm = useForm<CreditCardFormData>({
+  const addCreditCardForm = useForm<CreditCardFormInput>({
     resolver: zodResolver(creditCardFormSchema),
   })
 
@@ -36,6 +38,7 @@ function App() {
     handleSubmit,
     formState: { isSubmitting, errors },
     watch,
+    setValue,
   } = addCreditCardForm
 
   const cardNumber = String(watch('number'))
@@ -43,8 +46,8 @@ function App() {
   const cardValidity = watch('validity')
   const cardCVV = String(watch('cvv'))
 
-  async function handleAddCreditCard(data: CreditCardFormData) {
-    console.log({ data })
+  async function handleAddCreditCard(data: unknown) {
+    console.log(data as CreditCardFormOutput)
   }
 
   function flipCard() {
@@ -55,11 +58,25 @@ function App() {
     setIsCardFlipped(false)
   }
 
+  function handleCreditCardNumberChange(event: ChangeEvent<HTMLInputElement>) {
+    setValue('number', maskCreditCardNumber(event.target.value), {
+      shouldDirty: true,
+    })
+  }
+
+  function handleCreditCardValidityChange(
+    event: ChangeEvent<HTMLInputElement>,
+  ) {
+    setValue('validity', maskCreditCardValidity(event.target.value), {
+      shouldDirty: true,
+    })
+  }
+
   return (
     <FormProvider {...addCreditCardForm}>
       <form
         onSubmit={handleSubmit(handleAddCreditCard)}
-        className="mx-auto flex h-screen max-w-3xl flex-col items-center border-[#374151] bg-[#1F2937] px-6 py-8 lg:mt-16 lg:h-fit lg:rounded-md lg:border lg:p-8"
+        className="mx-auto mt-16 flex h-screen max-w-3xl flex-col items-center border-[#374151] bg-[#1F2937] px-6 py-8 lg:mt-40 lg:h-fit lg:rounded-md lg:border lg:p-8"
       >
         <div className="flex w-full flex-col items-center gap-16 lg:flex-row-reverse">
           <section className="flex w-72 flex-col items-center gap-8">
@@ -84,6 +101,7 @@ function App() {
                   placeholder="**** **** **** ****"
                   maxLength={19}
                   invalid={!!errors.number}
+                  onChange={handleCreditCardNumberChange}
                 />
 
                 {errors.number && (
@@ -114,6 +132,7 @@ function App() {
                     placeholder="mm/aa"
                     maxLength={5}
                     invalid={!!errors.validity}
+                    onChange={handleCreditCardValidityChange}
                   />
 
                   {errors.validity && (
@@ -145,7 +164,7 @@ function App() {
                   <Form.Input
                     name="cvv"
                     placeholder="***"
-                    maxLength={3}
+                    maxLength={4}
                     invalid={!!errors.cvv}
                     onFocus={flipCard}
                     onBlur={untapCard}
