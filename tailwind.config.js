@@ -7,8 +7,8 @@ export default {
         sans: ['Source Sans Pro, sans-serif'],
       },
       backgroundImage: {
-        'card-back': "url('./src/assets/credit-card-back.png')",
-        'card-front': "url('./src/assets/credit-card-front.png')",
+        'card-back': "url('/credit-card-back.png')",
+        'card-front': "url('/credit-card-front.png')",
       },
       keyframes: {
         slideDownAndFade: {
