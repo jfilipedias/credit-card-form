@@ -39,7 +39,7 @@ export function CreditCard({
     <div className="group h-[168px] w-[280px] [perspective:60rem]">
       <div
         className={clsx(
-          'bg-card-front absolute left-0 top-0 z-50 flex h-full w-full flex-col justify-end gap-4 bg-no-repeat p-6 transition-all duration-500 [backface-visibility:hidden] [transform:rotateY(0)] [transformstyle:preserve-3d] group-hover:[transform:rotateY(180deg)]',
+          'bg-card-front absolute left-0 top-0 z-50 flex h-full w-full flex-col justify-end gap-4 bg-no-repeat p-6 transition-all duration-500 [backface-visibility:hidden] [transform-style:preserve-3d] [transform:rotateY(0)] group-hover:[transform:rotateY(180deg)]',
           { '[transform:rotateY(180deg)]': isFlipped },
         )}
       >
@@ -60,7 +60,7 @@ export function CreditCard({
 
       <div
         className={clsx(
-          'bg-card-back absolute left-0 top-0 z-50 flex h-full w-full items-end bg-no-repeat px-6 pb-11 transition-all duration-500 [backface-visibility:hidden] [transformstyle:preserve-3d] [transform:rotateY(-180deg)] group-hover:[transform:rotateY(0)]',
+          'bg-card-back absolute left-0 top-0 z-50 flex h-full w-full items-end bg-no-repeat px-6 pb-11 transition-all duration-500 [backface-visibility:hidden] [transform-style:preserve-3d] [transform:rotateY(-180deg)] group-hover:[transform:rotateY(0)]',
           { '[transform:rotateY(0)]': isFlipped },
         )}
       >
