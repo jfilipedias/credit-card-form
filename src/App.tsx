@@ -98,6 +98,7 @@ function App() {
 
                 <Form.Input
                   name="number"
+                  inputMode="numeric"
                   placeholder="**** **** **** ****"
                   maxLength={19}
                   invalid={!!errors.number}
@@ -129,6 +130,7 @@ function App() {
 
                   <Form.Input
                     name="validity"
+                    inputMode="numeric"
                     placeholder="mm/aa"
                     maxLength={5}
                     invalid={!!errors.validity}
@@ -162,6 +164,7 @@ function App() {
 
                   <Form.Input
                     name="cvv"
+                    inputMode="numeric"
                     placeholder="***"
                     maxLength={4}
                     invalid={!!errors.cvv}
