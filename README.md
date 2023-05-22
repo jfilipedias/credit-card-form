@@ -3,7 +3,9 @@
 ![Autor](https://img.shields.io/badge/developer-jfilipedias-blue)
 ![Licença](https://img.shields.io/github/license/jfilipedias/credit-card-form)
 
-Esse projeto foi desenvolvido para o desafio [#boraCodar 13 da Rocketseat](https://www.rocketseat.com.br/boracodar/desafios-anteriores/um-forms-de-cartao-de-credito-desafio-13). Nele foi implementado um formulário para preenchimento dos dados de um cartão de crédito. Para isso foram utilizadas tecnologias como [ReactJS](https://reactjs.org/) e [Vite](https://vitejs.dev/) para o desenvolvimento do projeto, [TailwindCSS](https://tailwindcss.com/) para a estilização da interface, [React Hook Form](https://react-hook-form.com/) e [Zod](https://zod.dev/) para validação do formulário e [Radix](https://radix-ui.com/) para acessibilidade com o componente Tooltip.
+Esse projeto foi desenvolvido para o desafio [#boraCodar 13 da Rocketseat](https://www.rocketseat.com.br/boracodar/desafios-anteriores/um-forms-de-cartao-de-credito-desafio-13). Nele foi implementado um formulário para preenchimento dos dados de um cartão de crédito com o objetivo de estudar microinterações e como elas impactam na experiência do usuário. Desse modo, forma implementadas máscaras, validações e feedbacks os inputs do formulário, preview em tempo real do preenchimento do cartão e animação de flip do cartão para preview do campo CVV ao disparar os eventos de `hover` no preview do cartão e `focus` no campo CVV do formulário.  
+
+Para isso foram utilizadas tecnologias como [ReactJS](https://reactjs.org/) e [Vite](https://vitejs.dev/) para o desenvolvimento do projeto, [TailwindCSS](https://tailwindcss.com/) para a estilização da interface, [React Hook Form](https://react-hook-form.com/) e [Zod](https://zod.dev/) para validação do formulário e [Radix](https://radix-ui.com/) para acessibilidade com o componente Tooltip.
 
 ![Interface do projeto Credit Card Form](./docs/cover.png)
 
