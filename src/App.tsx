@@ -76,7 +76,7 @@ function App() {
     <FormProvider {...addCreditCardForm}>
       <form
         onSubmit={handleSubmit(handleAddCreditCard)}
-        className="mx-auto mt-16 flex h-screen max-w-3xl flex-col items-center border-[#374151] bg-[#1F2937] px-6 py-8 lg:mt-40 lg:h-fit lg:rounded-md lg:border lg:p-8"
+        className="mx-auto mt-16 flex max-w-3xl flex-col items-center border-[#374151] bg-[#1F2937] px-6 py-8 md:h-screen lg:mt-40 lg:h-fit lg:rounded-md lg:border lg:p-8"
       >
         <div className="flex w-full flex-col items-center gap-16 lg:flex-row-reverse">
           <section className="flex w-72 flex-col items-center gap-8">
@@ -187,6 +187,16 @@ function App() {
           Adicionar cartão
         </Button>
       </form>
+
+      <p className="mx-auto w-full max-w-3xl px-6 pb-8 text-sm text-[#E5E7EB] md:mt-8 md:p-0">
+        * Atenção,{' '}
+        <strong>não insira dados reais de cartões de créditos</strong>. Essa
+        aplicação foi desenvolvida para fins didáticos e{' '}
+        <strong>
+          nenhuma informação é salva ou enviada para um servidor remoto
+        </strong>
+        .
+      </p>
     </FormProvider>
   )
 }
