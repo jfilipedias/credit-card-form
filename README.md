@@ -7,6 +7,8 @@ Esse projeto foi desenvolvido para o desafio [#boraCodar 13 da Rocketseat](https
 
 Para isso foram utilizadas tecnologias como [ReactJS](https://reactjs.org/) e [Vite](https://vitejs.dev/) para o desenvolvimento do projeto, [TailwindCSS](https://tailwindcss.com/) para a estilização da interface, [React Hook Form](https://react-hook-form.com/) e [Zod](https://zod.dev/) para validação do formulário e [Radix](https://radix-ui.com/) para acessibilidade com o componente Tooltip.
 
+É importante notar que a aplicação **não salva** e **não envia** nenhuma informação para nenhum servidor remoto. De todo modo, não é recomendável que seja inserido nenhum dado real de cartão de crédito.
+
 ![Interface do projeto Credit Card Form](./docs/cover.png)
 
 ## Getting Started
