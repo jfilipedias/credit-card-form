@@ -7,7 +7,5 @@ export function maskCreditCardNumber(number: string) {
 }
 
 export function maskCreditCardValidity(validity: string) {
-  return validity
-    .replace(/\D/g, '')
-    .replace(/(0?[1-9]|1[0-2])([2-9]\d)/, '$1/$2')
+  return validity.replace(/\D/g, '').replace(/(\d{2})(\d)/, '$1/$2')
 }
